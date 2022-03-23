@@ -1,0 +1,10 @@
+---
+- hosts: all
+#  vars_files:
+#    - ~/.ansible/ansible.vault
+#  gather_facts: no
+#  become: no
+  roles:
+    - pre-run
+    - get-os-info
+    - print

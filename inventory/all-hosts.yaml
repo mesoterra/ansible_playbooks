@@ -1,0 +1,86 @@
+---
+allservers:
+  children:
+    externalweb:
+          hosts:
+            webserver1:
+              ansible_host: webserver
+              ansible_port: alt_ssh_port
+    parentservers:
+      hosts:
+        kvmparent:
+          ansible_host: parent.domain.tld
+          ansible_python_interpreter: /usr/bin/python
+    servers:
+      children:
+        backupservers:
+          hosts:
+            backupserver1:
+              ansible_host: backupserver1.domain.tld
+        nonwebweb:
+          hosts:
+            scripts:
+              ansible_host: script.domain.tld
+              ansible_python_interpreter: /usr/bin/python
+    vms:
+      hosts:
+        dhcp_vm:
+          ansible_host: dhcp-vm.domain.tld
+          vm_name: dhcp
+        multipurpose:
+          ansible_host: multipurpose.domain.tld
+          ansible_python_interpreter: /usr/bin/python
+          vm_name: KVMDOMAIN
+        media.domain.tld:
+          ansible_host: media.domain.tld
+          vm_name: media.domain.tld
+          ansible_python_interpreter: /usr/bin/python
+    vms_base:
+      hosts:
+        debian-11-base:
+          ansible_host: debian-11-base.domain.tld
+          vm_name: debian-11-base.domain.tld
+        archlinux-base.domain.tld:
+          ansible_host: archlinux-base.domain.tld
+          vm_name: archlinux-base.domain.tld
+          ansible_python_interpreter: /usr/bin/python
+    clusters:
+      hosts:
+        sc0.cluster.domain.tld:
+          ansible_host: sc0.cluster.domain.tld
+          vm_name: sc0.cluster.domain.tld
+          ansible_python_interpreter: /usr/bin/python
+        sc1.cluster.domain.tld:
+          ansible_host: sc1.cluster.domain.tld
+          vm_name: sc1.cluster.domain.tld
+          ansible_python_interpreter: /usr/bin/python
+        sc2.cluster.domain.tld:
+          ansible_host: sc2.cluster.domain.tld
+          vm_name: sc2.cluster.domain.tld
+          ansible_python_interpreter: /usr/bin/python
+        sc3.cluster.domain.tld:
+          ansible_host: sc3.cluster.domain.tld
+          vm_name: sc3.cluster.domain.tld
+          ansible_python_interpreter: /usr/bin/python
+    jenkins:
+      hosts:
+        jenkins_vm:
+          ansible_host: jenkins.domain.tld
+          ansible_python_interpreter: /usr/bin/python
+          vm_name: KVMDOMAINNAME
+    network:
+      hosts:
+        dhcp.domain.tld:
+desktops:
+  hosts:
+    desktop1:
+      ansible_host: desktop
+      ansible_python_interpreter: /usr/bin/python
+laptops:
+  hosts:
+    laptop1:
+      ansible_host: laptophere
+uniques:
+  hosts:
+    retropie:
+      ansible_host: retropiehere

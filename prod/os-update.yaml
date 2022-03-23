@@ -1,0 +1,13 @@
+---
+- hosts: all
+#  vars_files:
+#    - ~/.ansible/ansible.vault
+#  gather_facts: no
+#  become: no
+  roles:
+    - role: update-os
+      tags: [ 'never', 'schedule', 'reboot', 'noreboot']
+    - role: timed-reboot
+      tags: [ 'never', 'schedule' ]
+    - role: reboot
+      tags: [ 'never', 'reboot' ]
